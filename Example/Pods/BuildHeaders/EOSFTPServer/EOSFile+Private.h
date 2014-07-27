@@ -1,0 +1,1 @@
+../../../../Pod/Classes/EOSFile+Private.h
