@@ -51,7 +51,9 @@
 - ( void )processCommandREIN: ( EOSFTPServerConnection * )connection arguments: ( NSString * )args;
 - ( void )processCommandQUIT: ( EOSFTPServerConnection * )connection arguments: ( NSString * )args;
 - ( void )processCommandPORT: ( EOSFTPServerConnection * )connection arguments: ( NSString * )args;
+- ( void )processCommandEPRT: ( EOSFTPServerConnection * )connection arguments: ( NSString * )args;
 - ( void )processCommandPASV: ( EOSFTPServerConnection * )connection arguments: ( NSString * )args;
+- ( void )processCommandEPSV: ( EOSFTPServerConnection * )connection arguments: ( NSString * )args;
 - ( void )processCommandTYPE: ( EOSFTPServerConnection * )connection arguments: ( NSString * )args;
 - ( void )processCommandSTRU: ( EOSFTPServerConnection * )connection arguments: ( NSString * )args;
 - ( void )processCommandMODE: ( EOSFTPServerConnection * )connection arguments: ( NSString * )args;

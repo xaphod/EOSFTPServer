@@ -240,7 +240,29 @@ return;                                                                         
     [ connection openDataSocket: port ];
 }
 
+- ( void )processCommandEPRT: ( EOSFTPServerConnection * )connection arguments: ( NSString * )args
+{
+    __CHECK_AUTH( connection );
+    
+    NSArray *parts = [ args componentsSeparatedByString:@"|"];
+    NSUInteger port = (NSUInteger)[[parts objectAtIndex:3] intValue];
+    
+    connection.transferMode = EOSFTPServerTransferModePORT;
+    
+    [ connection openDataSocket:port];
+}
+
 - ( void )processCommandPASV: ( EOSFTPServerConnection * )connection arguments: ( NSString * )args
+{
+    __CHECK_AUTH( connection );
+    
+    ( void )args;
+    
+    [ connection setTransferMode: EOSFTPServerTransferModePASV ];
+    [ connection openDataSocket: 0 ];
+}
+
+- (void)processCommandEPSV: ( EOSFTPServerConnection * ) connection arguments: ( NSString * )args
 {
     __CHECK_AUTH( connection );
     
