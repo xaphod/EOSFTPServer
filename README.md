@@ -8,6 +8,13 @@ About
 
 A project to create a complete, standard compliant, multi-user, Objective-C (Mac OS X / iOS) FTP server.
 
+CocoaPods
+-----
+To use with CocoaPods, add this line to your _Podfile_
+```
+pod 'EOSFTPServer', :git => 'https://github.com/codewhisper/EOSFTPServer.git'
+```
+
 License
 -------
 
