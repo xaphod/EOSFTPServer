@@ -170,7 +170,7 @@ return;                                                                         
     } else {
         NSString *dir = [connection.currentDirectory stringByDeletingLastPathComponent];
         EOSFile *file = [EOSFile fileWithPath:dir];
-    
+        
         if (file == nil || file.type != EOSFileTypeDirectory)
         {
             [ connection sendMessage: [ self formattedMessage:[ self messageForReplyCode:550 ] code:550 ]];
@@ -349,6 +349,9 @@ return;                                                                         
     
     connection.currentArgs = [NSString stringWithString:args];
     [ connection sendMessage: [ self formattedMessage: [ self messageForReplyCode: 150 ] code: 150 ] ];
+    
+    NSString *filePath = [connection.currentDirectory stringByAppendingPathComponent:args];
+    [[NSNotificationCenter defaultCenter] postNotificationName:EOSFTPServerFileStatusNotification object:self userInfo:@{@"path": filePath, @"status": @(FTPFileUploading)}];
 }
 
 - ( void )processCommandSTOU: ( EOSFTPServerConnection * )connection arguments: ( NSString * )args
@@ -414,7 +417,7 @@ return;                                                                         
     
     ( void )connection;
     ( void )args;
-
+    
     NSString *oldPath = [self pathForArgs:connection.currentArgs connection:connection];
     NSString *newPath = [self pathForArgs:args connection:connection];
     
@@ -496,7 +499,7 @@ return;                                                                         
         
         return;
     }
-
+    
     [ connection sendMessage: [ self formattedMessage: [ NSString stringWithFormat: [ self messageForReplyCode: 257 ], dir ] code: 257 ] ];
 }
 

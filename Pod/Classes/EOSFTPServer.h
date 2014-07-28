@@ -44,7 +44,12 @@ FOUNDATION_EXPORT NSString * const EOSFTPServerException;
 typedef NSUInteger       EOSFTPServerReplyCode;
 typedef NSString * const EOSFTPServerCommand;
 
-static NSString * const EOSFTPServerFileUploadedNotification = @"com.codewhisper.EOSFTPServerFileUploadedNotification";
+static NSString * const EOSFTPServerFileStatusNotification = @"com.codewhisper.EOSFTPServerFileStatusNotification";
+
+typedef enum {
+    FTPFileUploading,
+    FTPFileReady
+} FTPFileStatus;
 
 /*
  * RFC 959 commands
