@@ -76,7 +76,7 @@
     if (file) {
         [ self sendMessage: [ NSString stringWithFormat: @"226 %@", [ _server messageForReplyCode: 226 ] ] ];
         
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"File Uploaded" object:self userInfo:@{@"file": file}];
+        [[NSNotificationCenter defaultCenter] postNotificationName:EOSFTPServerFileUploadedNotification object:self userInfo:@{@"path": filePath}];
         
     } else {
         [ self sendMessage: [ NSString stringWithFormat: @"550 %@", [ _server messageForReplyCode: 550 ] ] ];

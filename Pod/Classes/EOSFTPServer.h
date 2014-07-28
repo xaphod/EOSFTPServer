@@ -44,6 +44,8 @@ FOUNDATION_EXPORT NSString * const EOSFTPServerException;
 typedef NSUInteger       EOSFTPServerReplyCode;
 typedef NSString * const EOSFTPServerCommand;
 
+static NSString * const EOSFTPServerFileUploadedNotification = @"com.codewhisper.EOSFTPServerFileUploadedNotification";
+
 /*
  * RFC 959 commands
  */
