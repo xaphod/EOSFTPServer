@@ -47,8 +47,9 @@ typedef NSString * const EOSFTPServerCommand;
 static NSString * const EOSFTPServerFileStatusNotification = @"com.codewhisper.EOSFTPServerFileStatusNotification";
 
 typedef enum {
-    FTPFileUploading,
-    FTPFileReady
+    FTPFileStatusUploading,
+    FTPFileStatusReady,
+    FTPFileStatusError
 } FTPFileStatus;
 
 /*

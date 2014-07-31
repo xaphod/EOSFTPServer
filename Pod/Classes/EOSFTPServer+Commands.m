@@ -351,7 +351,7 @@ return;                                                                         
     [ connection sendMessage: [ self formattedMessage: [ self messageForReplyCode: 150 ] code: 150 ] ];
     
     NSString *filePath = [connection.currentDirectory stringByAppendingPathComponent:args];
-    [[NSNotificationCenter defaultCenter] postNotificationName:EOSFTPServerFileStatusNotification object:self userInfo:@{@"path": filePath, @"status": @(FTPFileUploading)}];
+    [[NSNotificationCenter defaultCenter] postNotificationName:EOSFTPServerFileStatusNotification object:self userInfo:@{@"path": filePath, @"status": @(FTPFileStatusUploading)}];
 }
 
 - ( void )processCommandSTOU: ( EOSFTPServerConnection * )connection arguments: ( NSString * )args

@@ -67,7 +67,7 @@
     EOS_FTP_DEBUG( @"Data read (tag: %li)", tag );
     
     [ _dataSocket readDataWithTimeout: EOS_FTP_SERVER_READ_TIMEOUT tag: EOS_FTP_SERVER_CLIENT_REQUEST ];	
-    [ _receivedData release ];
+    //[ _receivedData release ];
     
     _receivedData = ( NSMutableData * )[ data retain ];
     

@@ -69,21 +69,21 @@
     EOS_FTP_DEBUG( @"Data did finish reading" );
     
     NSString *filePath = [self.currentDirectory stringByAppendingPathComponent:self.currentArgs];
-    NSLog(@"new file %@", filePath);
     
     EOSFile *file = [EOSFile addNewFileWithPath:filePath data:_readData];
     
     if (file) {
         [ self sendMessage: [ NSString stringWithFormat: @"226 %@", [ _server messageForReplyCode: 226 ] ] ];
         
-        [[NSNotificationCenter defaultCenter] postNotificationName:EOSFTPServerFileStatusNotification object:self userInfo:@{@"path": filePath, @"status": @(FTPFileReady)}];
+        [[NSNotificationCenter defaultCenter] postNotificationName:EOSFTPServerFileStatusNotification object:self userInfo:@{@"path": filePath, @"status": @(FTPFileStatusReady)}];
         
     } else {
         [ self sendMessage: [ NSString stringWithFormat: @"550 %@", [ _server messageForReplyCode: 550 ] ] ];
+        
+        [[NSNotificationCenter defaultCenter] postNotificationName:EOSFTPServerFileStatusNotification object:self userInfo:@{@"path": filePath, @"status": @(FTPFileStatusError)}];
     }
     
-    [_readData release];
-    _readData = [[NSMutableData alloc] init];
+    [_readData setLength:0];
 }
 
 @end
