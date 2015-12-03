@@ -47,7 +47,7 @@
 {
     ( void )dataConnection;
     
-    EOS_FTP_DEBUG( @"Data written" );
+//    EOS_FTP_DEBUG( @"Data written" );
     
     [ self sendMessage: [ NSString stringWithFormat: @"226 %@", [ _server messageForReplyCode: 226 ] ] ];
     [ _dataConnection closeConnection ];
@@ -57,7 +57,7 @@
 {
     ( void )dataConnection;
     
-    EOS_FTP_DEBUG( @"Data read" );
+//    EOS_FTP_DEBUG( @"Data read" );
     
     [_readData appendData:dataConnection.receivedData];
 }
@@ -66,7 +66,7 @@
 {
     ( void )dataConnection;
     
-    EOS_FTP_DEBUG( @"Data did finish reading" );
+//    EOS_FTP_DEBUG( @"Data did finish reading" );
     
     NSString *filePath = [self.currentDirectory stringByAppendingPathComponent:self.currentArgs];
     

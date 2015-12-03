@@ -110,7 +110,7 @@
         [ listing addObject: fileInfos ];
     }
     
-    return ( listing.count > 0 ) ? [ listing componentsJoinedByString: @"\n" ] : nil;
+    return ( listing.count > 0 ) ? [ listing componentsJoinedByString: @"\n" ] : @""; // TC. was: :nil;
 }
 
 @end

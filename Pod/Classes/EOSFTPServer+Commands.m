@@ -255,11 +255,13 @@ return;                                                                         
 - ( void )processCommandPASV: ( EOSFTPServerConnection * )connection arguments: ( NSString * )args
 {
     __CHECK_AUTH( connection );
+
+    [ connection sendMessage: [ self formattedMessage: [ self messageForReplyCode: 502 ] code: 502 ] ];
     
     ( void )args;
-    
-    [ connection setTransferMode: EOSFTPServerTransferModePASV ];
-    [ connection openDataSocket: 0 ];
+//    TC - disable PASV by returning not supported. It doesn't seem to work.
+//    [ connection setTransferMode: EOSFTPServerTransferModePASV ];
+//    [ connection openDataSocket: 0 ];
 }
 
 - (void)processCommandEPSV: ( EOSFTPServerConnection * ) connection arguments: ( NSString * )args
@@ -510,19 +512,30 @@ return;                                                                         
     
     __CHECK_AUTH( connection );
     
+    if( args.length > 1 && [[args substringWithRange:NSMakeRange(0, 1)] isEqualToString:@"-"] ) {
+        args = @"";
+    }
+    
     list = [ self directoryListingForConnection: connection path: args ];
     
-    if( list.length > 0 )
-    {
+    if( list.length == 0) {
+        
+        [ connection sendMessage: [ self formattedMessage: [ self messageForReplyCode: 150 ] code: 150 ] ];
+        
+        list = [ NSString stringWithFormat: @"\r\n" ];
+        
+        [ connection sendDataString: list ];
+        
+    } else if( list.length > 0 ) {
+        
         lines = [ list componentsSeparatedByString: @"\n" ];
         [ connection sendMessage: [ self formattedMessage: [ self messageForReplyCode: 150 ] code: 150 ] ];
         
         list = [ NSString stringWithFormat: @"total %lu\n%@\r\n", (unsigned long)lines.count, list ];
         
         [ connection sendDataString: list ];
-    }
-    else
-    {
+        
+    } else { // nil case
         [ connection sendMessage: [ self formattedMessage: [ self messageForReplyCode: 450 ] code: 450 ] ];
     }
 }

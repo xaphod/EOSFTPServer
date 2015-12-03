@@ -90,7 +90,7 @@
 {
     NSMutableData * data;
     
-    EOS_FTP_DEBUG( @"Writing string" );
+//    EOS_FTP_DEBUG( @"Writing string" );
     
     data = [ [ str dataUsingEncoding: NSUTF8StringEncoding ] mutableCopy ];
     
@@ -102,7 +102,7 @@
 
 - ( void )writeData: ( NSMutableData * )data
 {
-    EOS_FTP_DEBUG( @"Writing data" );
+//    EOS_FTP_DEBUG( @"Writing data" );
     
     _connectionState = EOSFTPServerConnectionStateClientReceiving;
     
@@ -112,7 +112,7 @@
 
 - ( void )closeConnection
 {
-    EOS_FTP_DEBUG( @"Closing connection" );
+//    EOS_FTP_DEBUG( @"Closing connection" );
     
     [ _dataSocket disconnect ];
 }

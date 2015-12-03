@@ -44,7 +44,7 @@ FOUNDATION_EXPORT NSString * const EOSFTPServerException;
 typedef NSUInteger       EOSFTPServerReplyCode;
 typedef NSString * const EOSFTPServerCommand;
 
-static NSString * const EOSFTPServerFileStatusNotification = @"com.codewhisper.EOSFTPServerFileStatusNotification";
+static NSString * const EOSFTPServerFileStatusNotification = @"EOSFTPServerFileStatusNotification";
 
 typedef enum {
     FTPFileStatusUploading,
@@ -134,6 +134,9 @@ FOUNDATION_EXPORT EOSFTPServerCommand EOSFTPServerCommandNOOP;
 @property( atomic, readwrite, copy   ) NSString                   * rootDirectory;
 @property( atomic, readwrite, assign ) BOOL                         allowAnonymousUsers;
 @property( atomic, readwrite, assign ) id < EOSFTPServerDelegate >  delegate;
+
+@property( atomic, readwrite, copy) NSString* mainUser; // TC added
+@property( atomic, readwrite, copy) NSString* mainPassword; // TC added
 
 - ( id )initWithPort: ( NSUInteger )port;
 - ( BOOL )start;

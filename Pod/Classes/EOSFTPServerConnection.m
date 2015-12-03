@@ -66,7 +66,7 @@
     {
         _connectionSocket   = [ socket retain ];
         _server             = [ server retain ];
-        _transferMode       = EOSFTPServerTransferModePASV;
+        _transferMode       = EOSFTPServerTransferModePORT; // TC: changed from PASV
         _dataPort           = 2001;
         _queuedData         = [ [ NSMutableArray alloc ] initWithCapacity: 100 ];
         _encoding           = NSUTF8StringEncoding;
@@ -156,7 +156,7 @@
     
     if( _dataConnection != nil )
     {
-        EOS_FTP_DEBUG( @"Sending data" );
+//        EOS_FTP_DEBUG( @"Sending data" );
         
         [ _dataConnection writeData: data ];
     }
@@ -174,7 +174,7 @@
     
     if( _dataConnection != nil )
     {
-        EOS_FTP_DEBUG( @"Sending data" );
+//        EOS_FTP_DEBUG( @"Sending data" );
         
         [ _dataConnection writeData: data ];
     }
@@ -245,7 +245,7 @@
             break;
     }
     
-    EOS_FTP_DEBUG( @"Data socket opened - error: %@", e );
+//    EOS_FTP_DEBUG( @"Data socket opened - error: %@", e );
     
     return YES;
 }

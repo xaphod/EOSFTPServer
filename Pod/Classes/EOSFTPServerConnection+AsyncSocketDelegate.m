@@ -47,7 +47,7 @@
 
 - ( BOOL )onSocketWillConnect: ( AsyncSocket * )socket
 {
-    EOS_FTP_DEBUG( @"Socket will connect on port %u", [ socket localPort ] );
+//    EOS_FTP_DEBUG( @"Socket will connect on port %u", [ socket localPort ] );
     
     [ socket readDataWithTimeout: EOS_FTP_SERVER_READ_TIMEOUT tag: 0 ];
 
@@ -70,7 +70,7 @@
     ( void )socket;
     ( void )tag;
     
-    EOS_FTP_DEBUG( @"Data read (tag: %li)", tag );
+//    EOS_FTP_DEBUG( @"Data read (tag: %li)", tag );
     
     [ _connectionSocket readDataToData: [ NSData CRLFData ] withTimeout: EOS_FTP_SERVER_READ_TIMEOUT tag: EOS_FTP_SERVER_CLIENT_REQUEST ];
     
@@ -82,7 +82,7 @@
     ( void )socket;
     ( void )tag;
     
-    EOS_FTP_DEBUG( @"Data written (tag: %li)", tag );
+//    EOS_FTP_DEBUG( @"Data written (tag: %li)", tag );
     
     [ _connectionSocket readDataToData: [ NSData CRLFData ] withTimeout: EOS_FTP_SERVER_READ_TIMEOUT tag: EOS_FTP_SERVER_CLIENT_REQUEST ];
 }
