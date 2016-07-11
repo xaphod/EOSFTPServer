@@ -26,7 +26,7 @@ Pod::Spec.new do |s|
   s.source_files = 'Pod/Classes'
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
-  s.dependency 'CocoaAsyncSocket', '~> 7.3'
+  # s.dependency 'CocoaAsyncSocket', '~> 7.3'
   s.xcconfig = {'OTHER_LDFLAGS' => '-ObjC -all_load'}
   s.prefix_header_file = 'Pod/Classes/EOSFTPServer-Prefix.pch'
 end
