@@ -9,7 +9,7 @@
 
 Pod::Spec.new do |s|
   s.name             = "EOSFTPServer"
-  s.version          = "0.0.4"
+  s.version          = "0.0.5"
   s.summary          = "A project to create a complete, standard compliant, multi-user, Objective-C (Mac OS X / iOS) FTP server."
   s.description      = <<-DESC
                         A project to create a complete, standard compliant, multi-user, Objective-C (Mac OS X / iOS) FTP server.
@@ -26,7 +26,7 @@ Pod::Spec.new do |s|
   s.source_files = 'Pod/Classes'
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
-  # s.dependency 'CocoaAsyncSocket', '~> 7.3'
+  s.dependency 'CocoaAsyncSocket/RunLoop', '>= 7.5.0'
   s.xcconfig = {'OTHER_LDFLAGS' => '-ObjC -all_load'}
   s.prefix_header_file = 'Pod/Classes/EOSFTPServer-Prefix.pch'
 end
