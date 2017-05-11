@@ -38,7 +38,7 @@
 
 #import "EOSFTPServerConnection+Private.h"
 #import "EOSFTPServer.h"
-#import "AsyncSocket.h"
+@import xaphodObjCUtils;
 #import "NSData+EOS.h"
 
 @implementation EOSFTPServerConnection( Private )

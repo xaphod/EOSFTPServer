@@ -41,7 +41,7 @@
 #import "EOSFTPServerConnection+AsyncSocketDelegate.h"
 #import "EOSFTPServerConnection+EOSFTPServerDataConnectionDelegate.h"
 #import "EOSFTPServerDataConnection.h"
-#import "AsyncSocket.h"
+@import xaphodObjCUtils;
 #import "EOSFTPServer.h"
 #import "NSData+EOS.h"
 

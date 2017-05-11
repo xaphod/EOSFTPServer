@@ -44,7 +44,7 @@
 #import "EOSFTPServerUser.h"
 #import "EOSFTPServerConnection.h"
 #import "NSString+EOS.h"
-#import "AsyncSocket.h"
+@import xaphodObjCUtils;
 #import "EOSFile.h"
 
 NSString * const EOSFTPServerException = @"EOSFTPServerException";
