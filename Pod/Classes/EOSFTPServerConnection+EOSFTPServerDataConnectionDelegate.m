@@ -83,7 +83,8 @@
         [[NSNotificationCenter defaultCenter] postNotificationName:EOSFTPServerFileStatusNotification object:self userInfo:@{@"path": filePath, @"status": @(FTPFileStatusError)}];
     }
     
-    [_readData setLength:0];
+    [_readData release];
+    _readData = [NSMutableData data];
 }
 
 @end
