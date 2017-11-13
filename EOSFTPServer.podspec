@@ -9,7 +9,7 @@
 
 Pod::Spec.new do |s|
   s.name             = "EOSFTPServer"
-  s.version          = "0.0.7"
+  s.version          = "0.0.8"
   s.summary          = "A project to create a complete, standard compliant, multi-user, Objective-C (Mac OS X / iOS) FTP server."
   s.description      = <<-DESC
                         A project to create a complete, standard compliant, multi-user, Objective-C (Mac OS X / iOS) FTP server.

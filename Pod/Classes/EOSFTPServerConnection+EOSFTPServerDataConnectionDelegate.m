@@ -67,8 +67,11 @@
     ( void )dataConnection;
     
 //    EOS_FTP_DEBUG( @"Data did finish reading" );
-    
-    NSString *filePath = [self.currentDirectory stringByAppendingPathComponent:self.currentArgs];
+
+    NSString *path = self.currentArgs;
+    if (_server.flattenUploads)
+        path = self.currentArgs.lastPathComponent;
+    NSString *filePath = [self.currentDirectory stringByAppendingPathComponent:path];
     
     EOSFile *file = [EOSFile addNewFileWithPath:filePath data:_readData];
     
@@ -84,7 +87,7 @@
     }
     
     [_readData release];
-    _readData = [NSMutableData data];
+    _readData = [[NSMutableData alloc] init];
 }
 
 @end

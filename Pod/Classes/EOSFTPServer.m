@@ -96,7 +96,8 @@ EOSFTPServerCommand EOSFTPServerCommandNOOP = @"NOOP";
 @synthesize chroot              = _chroot;
 @synthesize allowAnonymousUsers = _allowAnonymousUsers;
 @synthesize delegate            = _delegate;
-@synthesize mainUser = _mainUser;
+@synthesize mainUser            = _mainUser;
+@synthesize flattenUploads      = _flattenUploads;
 
 - ( id )init
 {

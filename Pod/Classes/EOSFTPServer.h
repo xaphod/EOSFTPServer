@@ -115,6 +115,7 @@ FOUNDATION_EXPORT EOSFTPServerCommand EOSFTPServerCommandNOOP;
     AsyncSocket               * _listenSocket;
     NSNetService              * _netService;
     id < EOSFTPServerDelegate > _delegate;
+    BOOL                        _flattenUploads;
     
 @private
     
@@ -134,6 +135,7 @@ FOUNDATION_EXPORT EOSFTPServerCommand EOSFTPServerCommandNOOP;
 @property( atomic, readwrite, copy   ) NSString                   * rootDirectory;
 @property( atomic, readwrite, assign ) BOOL                         allowAnonymousUsers;
 @property( atomic, readwrite, assign ) id < EOSFTPServerDelegate >  delegate;
+@property( nonatomic, readwrite, assign ) BOOL                      flattenUploads; // TC added: ignore paths of uploads
 
 @property( atomic, readwrite, copy) NSString* mainUser; // TC added
 @property( atomic, readwrite, copy) NSString* mainPassword; // TC added
